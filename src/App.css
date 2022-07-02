@@ -4,6 +4,9 @@
 
 @layer {
     .App {
-        @apply h-screen w-full
+        @apply h-screen w-full dark:bg-slate-700 bg-slate-300 transition-all
+    }
+    .resources {
+        @apply h-72 w-72 bg-slate-400 dark:bg-gray-900 rounded-md ml-9 mt-6 flex
     }
 }
