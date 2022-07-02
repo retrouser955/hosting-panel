@@ -50,6 +50,7 @@ const config = {
     ],
     async getConsoleMethod(serverId) {
         console.log(serverId)
+        await delay(5000)
         return "Console not set up yet" // this should return a string which contains the console
     },
     async getResourcesMethod(serverId) {
