@@ -33,26 +33,28 @@ export default function ServerInfo() {
                 <div className="resources">
                     <div className="mx-auto my-auto">
                             {
-                                res ?                         
-                                <p className="dark:text-white font-bold">
-                                    Ram: {String(res.ram.used)}/{String(res.ram.limit)} <br />
-                                    CPU: {String(res.cpu.used)}/{String(res.cpu.limit)} <br />
-                                    Storage: {String(res.storage.used)}/{String(res.storage.limit)} <br />
-                                    Uptime: {String(res.upTime)}
-                                </p> :
+                                res ?  
+                                <>                       
+                                    <p className="dark:text-white font-bold">
+                                        Ram: {String(res.ram.used)}/{String(res.ram.limit)} <br />
+                                        CPU: {String(res.cpu.used)}/{String(res.cpu.limit)} <br />
+                                        Storage: {String(res.storage.used)}/{String(res.storage.limit)} <br />
+                                        Uptime: {String(res.upTime)}
+                                    </p>
+                                    <div className="flex justify-center mt-6">
+                                        <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded mx-1 transition-all' onClick={(e) => {
+                                            config.onStart(e, serverId)
+                                        }}>Start</button>
+                                        <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded mx-1 transition-all' onClick={(e) => {
+                                            config.onStop(e, serverId)
+                                        }}>Stop</button>
+                                        <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded mx-1 transition-all' onClick={(e) => {
+                                            config.onRestart(e, serverId)
+                                        }}>Restart</button>
+                                    </div>
+                                </> :
                                 <CgSpinnerTwo className="animate-spin dark:text-gray-200 text-gray-700" size="48" />
                             }
-                            <div className="flex justify-center mt-6">
-                                <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded mx-1 transition-all' onClick={(e) => {
-                                    config.onStart(e, serverId)
-                                }}>Start</button>
-                                <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded mx-1 transition-all' onClick={(e) => {
-                                    config.onStop(e, serverId)
-                                }}>Stop</button>
-                                <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded mx-1 transition-all' onClick={(e) => {
-                                    config.onRestart(e, serverId)
-                                }}>Restart</button>
-                            </div>
                         </div>
                     </div>
                 <div className="flex w-[66vw] h-[53vh] dark:bg-slate-400 bg-gray-200 mx-auto mt-6 rounded-md shadow-xl">
